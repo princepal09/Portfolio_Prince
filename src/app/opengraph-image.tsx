@@ -3,7 +3,6 @@ import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { profile } from "@/constants";
 
-export const runtime = "nodejs";
 export const alt = `Portrait of ${profile.name}, ${profile.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -20,7 +19,8 @@ export default function OpenGraphImage() {
       style={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: "flex-start",
+        gap: 36,
         width: "100%",
         height: "100%",
         padding: "56px 68px",
@@ -34,9 +34,8 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          width: 660,
+          width: 480,
           height: "100%",
-          paddingRight: 28,
         }}
       >
         <div
@@ -93,8 +92,8 @@ export default function OpenGraphImage() {
       <div
         style={{
           display: "flex",
-          width: 360,
-          height: 500,
+          width: 480,
+          height: 480,
           overflow: "hidden",
           border: "3px solid #facc15",
           borderRadius: 28,
@@ -106,8 +105,8 @@ export default function OpenGraphImage() {
         <img
           src={portraitSrc}
           alt={alt}
-          width={360}
-          height={500}
+          width={480}
+          height={480}
           style={{ objectFit: "cover", objectPosition: "center 40%" }}
         />
       </div>
