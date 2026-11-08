@@ -5,7 +5,7 @@ const githubUsername = "princepal09";
 export const profile = {
   name: "Prince Pal",
   role: "Full Stack Developer",
-  tagline: "I build full-stack web apps, admin dashboards, and APIs.",
+  tagline: "Full-stack developer building web apps and APIs with React, Next.js, Node.js, and PostgreSQL.",
   bio: "Crafting modern web experiences with a focus on user experience and performance.",
   location: "Bhimtal, Nainital, Uttarakhand, India",
   email,
@@ -393,12 +393,12 @@ export const experiences: IExperience[] = [
     company: "Mend Solutions",
     logo: "/mend-logo.png",
     role: "Software Engineer Trainee",
-    duration: "Present",
+    duration: "Sep 15, 2026 – Present",
     current: true,
     contributions: [
-      "Contribute to a full-stack application built with PostgreSQL, Express.js, React, and Node.js.",
+      "Contribute across the frontend and backend of a full-stack application using React, Express.js, Node.js, and PostgreSQL.",
       "Work with FastAPI alongside the main application stack.",
-      "Help deploy applications to a virtual private server (VPS).",
+      "Assist with deploying applications to a virtual private server (VPS).",
     ],
     technologies: [
       "PostgreSQL",

@@ -10,9 +10,9 @@ export function HeroOrnament() {
     const visual = canvas?.closest("[data-hero-visual]");
     if (!canvas || !visual) return;
 
-    const animated = window.matchMedia(
-      "(min-width: 768px) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
-    );
+    // Keep the ornament moving on touch screens too, while respecting the
+    // visitor's system motion preference and pausing when it leaves the viewport.
+    const animated = window.matchMedia("(prefers-reduced-motion: no-preference)");
     let disposed = false;
     let loading = false;
     let updateAnimation: (() => void) | undefined;
