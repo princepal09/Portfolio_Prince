@@ -50,7 +50,8 @@ const Header = () => {
       if (event.key === "Escape") setIsMobileMenuOpen(false);
     };
     const handlePointerDown = (event: PointerEvent) => {
-      if (!headerRef.current?.contains(event.target as Node)) setIsMobileMenuOpen(false);
+      if (!headerRef.current?.contains(event.target as Node))
+        setIsMobileMenuOpen(false);
     };
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("pointerdown", handlePointerDown);
@@ -83,10 +84,15 @@ const Header = () => {
             className="rounded-sm text-lg font-bold tracking-tight text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
           >
             {profile.name}
-            <span className="ml-1 text-primary" aria-hidden="true">.</span>
+            <span className="ml-1 text-primary" aria-hidden="true">
+              .
+            </span>
           </Link>
 
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+          <nav
+            className="hidden items-center gap-7 lg:flex"
+            aria-label="Primary"
+          >
             {navigation.map(({ id, label }) => (
               <a
                 className={linkClass(id)}
@@ -104,7 +110,12 @@ const Header = () => {
               </a>
             ))}
 
-            <Button asChild variant="default" size="lg" className="ml-1 h-10 gap-2 px-4">
+            <Button
+              asChild
+              variant="default"
+              size="lg"
+              className="ml-1 h-10 gap-2 px-4"
+            >
               <a href={profile.resumeUrl} download>
                 <Download className="size-4" />
                 Resume
@@ -116,12 +127,20 @@ const Header = () => {
             variant="ghost"
             size="icon-lg"
             className="lg:hidden"
-            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isMobileMenuOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+            }
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
             onClick={() => setIsMobileMenuOpen((open) => !open)}
           >
-            {isMobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            {isMobileMenuOpen ? (
+              <X className="size-5" />
+            ) : (
+              <Menu className="size-5" />
+            )}
           </Button>
         </div>
       </div>
@@ -134,23 +153,31 @@ const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="overflow-hidden border-t border-border/70 bg-background/95 backdrop-blur-xl lg:hidden"
+            className="relative z-[51] overflow-hidden border-t border-border/70 bg-background/95 backdrop-blur-xl pointer-events-auto lg:hidden"
           >
-            <nav className="container mx-auto flex flex-col gap-1 px-5 py-3 sm:px-10" aria-label="Mobile primary">
+            <nav
+              className="container mx-auto flex flex-col gap-1 px-5 py-3 sm:px-10"
+              aria-label="Mobile primary"
+            >
               {navigation.map(({ id, label }) => (
-                <a
+                <Link
                   className={`${linkClass(id)} rounded-md px-3 ${
                     activeSection === id ? "bg-primary/10" : "hover:bg-muted/70"
                   }`}
                   key={id}
-                  onClick={closeMobileMenu}
                   href={`${siteLinks.home}#${id}`}
+                  onClick={closeMobileMenu}
                   aria-current={activeSection === id ? "location" : undefined}
                 >
                   {label}
-                </a>
+                </Link>
               ))}
-              <Button asChild variant="default" size="sm" className="mt-2 h-9 gap-2">
+              <Button
+                asChild
+                variant="default"
+                size="sm"
+                className="mt-2 h-9 gap-2"
+              >
                 <a href={profile.resumeUrl} download onClick={closeMobileMenu}>
                   <Download className="size-4" />
                   Download Resume
