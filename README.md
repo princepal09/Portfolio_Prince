@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prince Pal Portfolio
 
-## Getting Started
+Next.js App Router migration of [Prince Pal’s React portfolio](https://github.com/princepal09/Portfolio). The site uses shadcn/ui, Tailwind CSS, Framer Motion, React Hook Form, and a small Three.js decoration in the hero.
 
-First, run the development server:
+## Run locally
 
-```bash
+Use Node.js 22 and npm.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Run `npm run build` to verify the production build and `npm run lint` for ESLint.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## GitHub activity
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` and set `GITHUB_TOKEN` to a GitHub token with access to public GitHub data. Restart the dev server after saving it. The browser fetches `/api/github`, and only the Next.js server uses the token. The token belongs in a server environment variable without a `NEXT_PUBLIC_` prefix.
 
-## Learn More
+The section links to the GitHub profile while the token is missing or GitHub is unavailable.
 
-To learn more about Next.js, take a look at the following resources:
+## Contact form
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+React Hook Form validates each submission before the browser sends it to Formspree. Set the recipient in the form’s Target Email setting in the Formspree dashboard.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edit the Formspree endpoint, personal details, navigation, résumé, social links, and projects in `src/constants/index.ts`.
 
-## Deploy on Vercel
+## Deploy from GitHub to Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Push this project to `princepal09/portfolia_prince` and import that repository in Vercel. Use the Next.js preset with the repository root as the root directory. Add `GITHUB_TOKEN` in the project's Production environment variables and deploy or redeploy after saving it.
