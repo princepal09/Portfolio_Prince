@@ -3,7 +3,7 @@ import { profile } from "@/constants";
 
 export const alt = `${profile.name} | ${profile.role}`;
 export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+export const contentType = "profile/jpeg";
 
 export default function OpenGraphImage() {
   const initials = profile.name
